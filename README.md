@@ -5,11 +5,11 @@
   <p><strong>A high-fidelity, serverless-deployed Postman alternative built for speed.</strong></p>
 
   <p>
-    <a href="https://apiforge-hel9o7i0u-jaswanths-projects-d3e93672.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" /></a>
+    <a href="https://apiforge-hel9o7i0u-jaswanths-projects-d3e93672.vercel.app/"><img src="https://img.shields.io/badge/Live_Frontend-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Frontend" /></a>
+    <a href="https://apiforge-backend-u00z.onrender.com/api/v1/health"><img src="https://img.shields.io/badge/Live_Backend-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="Live Backend" /></a>
     <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
     <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
     <img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
-    <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="Render" />
   </p>
 </div>
 
@@ -170,7 +170,9 @@ This project is an **original work** built from scratch. It utilizes clean patte
 
 ## 🧪 VII. Live Application Test Cases
 
-You can test the fully deployed application right now at: **[https://apiforge-hel9o7i0u-jaswanths-projects-d3e93672.vercel.app/](https://apiforge-hel9o7i0u-jaswanths-projects-d3e93672.vercel.app/)**
+You can test the fully deployed application right now at: 
+* **Frontend UI**: [https://apiforge-hel9o7i0u-jaswanths-projects-d3e93672.vercel.app/](https://apiforge-hel9o7i0u-jaswanths-projects-d3e93672.vercel.app/)
+* **Backend API Proxy**: [https://apiforge-backend-u00z.onrender.com](https://apiforge-backend-u00z.onrender.com)
 
 Try these specific test scenarios on the live site to verify functionality:
 
