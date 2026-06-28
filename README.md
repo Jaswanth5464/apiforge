@@ -67,24 +67,36 @@ The application is split into a **Next.js React Frontend** and a **FastAPI Pytho
 
 ## ⚙️ Technical Architecture Overview
 
+The application supports a dual-architecture model to optimize both developer experience and production scalability:
+
+### 1. Local Development Architecture (SQLite)
+Uses a local file-based SQLite database for zero-configuration, instant startup during development.
 ```mermaid
 graph TD
-    Client["Next.js Client (Port 3000)"] -->|"HTTP API / collections"| Proxy["FastAPI Server (Port 8000)"]
-    Client -->|"POST /runner/run"| Proxy
-    Proxy -->|"SQLAlchemy ORM"| DB[("PostgreSQL Database")]
+    Client["Next.js Client (Port 3000)"] -->|"HTTP API"| Proxy["FastAPI Server (Port 8000)"]
+    Proxy -->|"SQLAlchemy ORM"| DB[("SQLite Database (Local)")]
+    Proxy -->|"httpx.AsyncClient"| Internet["External Target APIs"]
+```
+
+### 2. Production Deployment Architecture (Vercel + Render + PostgreSQL)
+Uses a fully managed serverless Edge frontend, a cloud web service backend, and a robust PostgreSQL database to prevent data loss on ephemeral cloud filesystems.
+```mermaid
+graph TD
+    Client["Next.js Client (Vercel Edge)"] -->|"HTTPS API"| Proxy["FastAPI Server (Render)"]
+    Proxy -->|"SQLAlchemy ORM"| DB[("PostgreSQL Database (Render)")]
     Proxy -->|"httpx.AsyncClient"| Internet["External Target APIs"]
 ```
 
 ### Tech Stack:
 *   **Frontend**: Next.js (TypeScript), Tailwind CSS, Zustand (state management), Axios, Monaco Editor, Lucide Icons.
 *   **Backend**: Python, FastAPI, Uvicorn, SQL Alchemy ORM, Pydantic (validation schemas), httpx (async HTTP requests client).
-*   **Database**: PostgreSQL (Render) / SQLite (Local).
+*   **Database**: PostgreSQL (Production) / SQLite (Local).
 
 ---
 
 ## 🗄️ Database Schema Design
 
-SQLite acts as the relational persistence layer. Below is the Entity-Relationship (ER) mapping:
+The database (SQLite locally, PostgreSQL in production) acts as the relational persistence layer. Below is the Entity-Relationship (ER) mapping:
 
 ```mermaid
 erDiagram
