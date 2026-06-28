@@ -175,7 +175,7 @@ You can test the fully deployed application right now at: **[https://apiforge-he
 Try these specific test scenarios on the live site to verify functionality:
 
 | Test Scenario | Instructions to Verify | Expected Result |
-|---|---|---|
+| :--- | :--- | :--- |
 | **Test 1: Simple GET Request** | Enter `https://httpbin.org/get` in the URL bar and click **Send**. | The proxy successfully forwards the request. The Response panel will show `200 OK` and a JSON body containing your request details. |
 | **Test 2: cURL Import** | Click **Import cURL**. Paste `curl -X POST https://httpbin.org/post -d '{"hello": "world"}' -H "Content-Type: application/json"`. Click Import, then Send. | The Method changes to POST, URL populates, Body changes to JSON with the payload. The response from httpbin echoes the JSON back. |
 | **Test 3: Environment Variables** | Switch Environment dropdown to `Development`. In the URL, type `{{API_URL}}/api/v1/health`. Click Send. | The system resolves `{{API_URL}}` to the live backend URL and returns `{"status":"ok","database":"healthy"}`. |
