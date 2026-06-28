@@ -154,7 +154,7 @@ export function UrlBar({ tab }: UrlBarProps) {
           <button
             onClick={() => setShowCodeMenu(!showCodeMenu)}
             title="Generate code"
-            className="p-2 rounded-md border border-[#333] bg-[#242424] hover:bg-[#2a2a2a] text-[#999] hover:text-[#e8e8e8] transition-colors"
+            className="p-2 rounded-md border border-[#333] bg-[#242424] hover:bg-[#2a2a2a] text-[#e8e8e8] transition-colors"
           >
             <Code2 className="w-4 h-4" />
           </button>
@@ -193,7 +193,7 @@ export function UrlBar({ tab }: UrlBarProps) {
         {/* Save button */}
         <button
           onClick={() => setShowSaveModal(true)}
-          className="flex items-center gap-1.5 px-3 py-2 rounded-md border border-[#333] bg-[#242424] hover:bg-[#2a2a2a] text-[#ccc] hover:text-[#e8e8e8] text-xs font-medium transition-colors shrink-0"
+          className="flex items-center gap-1.5 px-3 py-2 rounded-md border border-[#333] bg-[#242424] hover:bg-[#2a2a2a] text-[#e8e8e8] text-xs font-medium transition-colors shrink-0"
           title="Save request (Ctrl+S)"
         >
           <Save className="w-3.5 h-3.5" />
@@ -204,7 +204,7 @@ export function UrlBar({ tab }: UrlBarProps) {
         <button
           onClick={handleSend}
           disabled={isLoading || !tab.url.trim()}
-          className="flex items-center gap-1.5 px-4 py-2 rounded-md bg-[#ff6c37] hover:bg-[#ff8555] disabled:opacity-80 disabled:cursor-not-allowed text-white text-xs font-bold transition-colors shrink-0 shadow-lg shadow-orange-500/20"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-md bg-[#ff6c37] hover:bg-[#ff8555] disabled:bg-[#8f3e21] disabled:text-[#ccc] disabled:cursor-not-allowed text-white text-xs font-bold transition-colors shrink-0 shadow-lg shadow-orange-500/20"
           title="Send (Ctrl+Enter)"
         >
           {isLoading ? (

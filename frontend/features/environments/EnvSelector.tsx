@@ -32,7 +32,7 @@ export function EnvSelector() {
     <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded border border-[#333] bg-[#242424] hover:bg-[#2a2a2a] text-xs text-[#ccc] hover:text-[#e8e8e8] transition-colors"
+        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded border border-[#333] bg-[#242424] hover:bg-[#2a2a2a] text-xs text-[#e8e8e8] transition-colors"
       >
         <Globe className="w-3.5 h-3.5 text-[#555]" />
         <span className="max-w-[120px] truncate">{selected?.name || 'No Environment'}</span>
@@ -47,7 +47,7 @@ export function EnvSelector() {
               onClick={() => handleSelect(null)}
               className={cn(
                 'w-full text-left px-3 py-1.5 text-xs hover:bg-[#333] transition-colors',
-                !selectedEnvironmentId ? 'text-[#ff6c37]' : 'text-[#ccc]'
+                !selectedEnvironmentId ? 'text-[#ff6c37]' : 'text-[#e8e8e8]'
               )}
             >
               No Environment
@@ -59,7 +59,7 @@ export function EnvSelector() {
                 onClick={() => handleSelect(env.id)}
                 className={cn(
                   'w-full text-left px-3 py-1.5 text-xs hover:bg-[#333] transition-colors flex items-center gap-2',
-                  env.id === selectedEnvironmentId ? 'text-[#ff6c37]' : 'text-[#ccc]'
+                  env.id === selectedEnvironmentId ? 'text-[#ff6c37]' : 'text-[#e8e8e8]'
                 )}
               >
                 <Globe className="w-3 h-3" />

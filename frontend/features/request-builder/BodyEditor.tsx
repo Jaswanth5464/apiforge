@@ -130,7 +130,7 @@ export function BodyEditor({ bodyType, bodyContent, onChange }: BodyEditorProps)
                       updateFormRows(rows);
                     }}
                     placeholder="Key"
-                    className="px-3 py-2 bg-transparent text-xs text-[#e8e8e8] placeholder:text-[#777] focus:outline-none border-r border-[#2a2a2a] font-mono"
+                    className="px-3 py-2 bg-transparent text-xs text-[#e8e8e8] placeholder:text-[#999] focus:outline-none border-r border-[#2a2a2a] font-mono"
                   />
                   <input
                     type="text"
@@ -141,7 +141,7 @@ export function BodyEditor({ bodyType, bodyContent, onChange }: BodyEditorProps)
                       updateFormRows(rows);
                     }}
                     placeholder="Value"
-                    className="px-3 py-2 bg-transparent text-xs text-[#e8e8e8] placeholder:text-[#777] focus:outline-none font-mono"
+                    className="px-3 py-2 bg-transparent text-xs text-[#e8e8e8] placeholder:text-[#999] focus:outline-none font-mono"
                   />
                   <div className="flex items-center justify-center px-1">
                     <button

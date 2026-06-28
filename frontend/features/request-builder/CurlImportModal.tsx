@@ -57,7 +57,7 @@ export function CurlImportModal({ onClose }: CurlImportModalProps) {
             onChange={(e) => setInput(e.target.value)}
             placeholder={`curl 'https://api.example.com/users' \\\n  -H 'Authorization: Bearer token' \\\n  -H 'Content-Type: application/json'`}
             rows={8}
-            className="w-full bg-[#1a1a1a] border border-[#333] rounded-lg px-3 py-2.5 text-xs text-[#e8e8e8] font-mono placeholder:text-[#333] focus:outline-none focus:border-[#ff6c37] resize-none"
+            className="w-full bg-[#1a1a1a] border border-[#333] rounded-lg px-3 py-2.5 text-xs text-[#e8e8e8] font-mono placeholder:text-[#999] focus:outline-none focus:border-[#ff6c37] resize-none"
           />
         </div>
 

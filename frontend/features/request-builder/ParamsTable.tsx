@@ -109,21 +109,21 @@ export function ParamsTable({ url, params, onChange, onUrlChange }: ParamsTableP
               value={row.key}
               onChange={(e) => update(i, { key: e.target.value })}
               placeholder="Key"
-              className="px-3 py-2 bg-transparent text-xs text-[#e8e8e8] placeholder:text-[#777] focus:outline-none border-r border-[#2a2a2a] font-mono"
+              className="px-3 py-2 bg-transparent text-xs text-[#e8e8e8] placeholder:text-[#999] focus:outline-none border-r border-[#2a2a2a] font-mono"
             />
             <input
               type="text"
               value={row.value}
               onChange={(e) => update(i, { value: e.target.value })}
               placeholder="Value"
-              className="px-3 py-2 bg-transparent text-xs text-[#e8e8e8] placeholder:text-[#777] focus:outline-none border-r border-[#2a2a2a] font-mono"
+              className="px-3 py-2 bg-transparent text-xs text-[#e8e8e8] placeholder:text-[#999] focus:outline-none border-r border-[#2a2a2a] font-mono"
             />
             <input
               type="text"
               value={row.description || ''}
               onChange={(e) => update(i, { description: e.target.value })}
               placeholder="Description"
-              className="px-3 py-2 bg-transparent text-xs text-[#777] placeholder:text-[#777] focus:outline-none"
+              className="px-3 py-2 bg-transparent text-xs text-[#777] placeholder:text-[#999] focus:outline-none"
             />
             <div className="flex items-center justify-center px-1">
               <button
