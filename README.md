@@ -171,7 +171,7 @@ This project is an **original work** built from scratch. It utilizes clean patte
 ## 🧪 VII. Live Application Test Cases
 
 You can test the fully deployed application right now at: 
-* **Frontend UI**: [https://apiforge-hel9o7i0u-jaswanths-projects-d3e93672.vercel.app/](https://apiforge-hel9o7i0u-jaswanths-projects-d3e93672.vercel.app/)
+* **Frontend UI**: [https://apiforge-hel9o7i0u-jaswanths-projects-d3e93672.vercel.app/](https://apiforge-nine.vercel.app/)
 * **Backend API Proxy**: [https://apiforge-backend-u00z.onrender.com](https://apiforge-backend-u00z.onrender.com)
 
 Try these specific test scenarios on the live site to verify functionality:
