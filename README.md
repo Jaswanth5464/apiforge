@@ -1,11 +1,11 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Postman.svg" width="80" height="80" alt="APIForge Logo"/>
+  <img src="https://img.icons8.com/color/96/000000/api.png" width="80" height="80" alt="APIForge Logo"/>
   <br/>
-  <h1>🚀 APIForge — API Client Platform</h1>
+  <h1>APIForge — API Client Platform</h1>
   <p><strong>A high-fidelity, serverless-deployed Postman alternative built for speed.</strong></p>
 
   <p>
-    <a href="https://apiforge-app.vercel.app"><img src="https://img.shields.io/badge/Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" /></a>
+    <a href="https://apiforge-hel9o7i0u-jaswanths-projects-d3e93672.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" /></a>
     <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
     <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
     <img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
@@ -21,7 +21,7 @@ The application is split into a **Next.js React Frontend** and a **FastAPI Pytho
 
 ---
 
-## 🌟 Features Explained (in Simple English)
+## 🌟 I. Features Explained
 
 1. **Workspace Layout & Custom Drag Dividers**:
    - The workspace features a sidebar, a request panel, and a response panel.
@@ -73,18 +73,19 @@ The application is split into a **Next.js React Frontend** and a **FastAPI Pytho
 
 ---
 
-## 🎨 UI Design Choices (Replicating Postman)
+## 🎨 II. UI Design Choices
+
 *   **Colors & Badges**: Method colors match Postman (green for `POST`, blue for `GET`, yellow for `PUT`, red for `DELETE`).
 *   **Dividers**: The split panes match the original Postman layout grids. Drag handlers track pointer movements with a smooth 60fps tracking.
 *   **Light/Dark Switching**: Using CSS variable remapping overrides in `globals.css`, hardcoded Tailwind colors are swapped on-the-fly, enabling Light Mode without breaking layout styles or Monaco themes.
 
 ---
 
-## ⚙️ Technical Architecture Overview
+## ⚙️ III. Technical Architecture
 
 The application supports a dual-architecture model to optimize both developer experience and production scalability:
 
-### 1. Local Development Architecture (SQLite)
+### A. Local Development Architecture (SQLite)
 Uses a local file-based SQLite database for zero-configuration, instant startup during development.
 ```mermaid
 graph TD
@@ -93,7 +94,7 @@ graph TD
     Proxy -->|"httpx.AsyncClient"| Internet["External Target APIs"]
 ```
 
-### 2. Production Deployment Architecture (Vercel + Render + PostgreSQL)
+### B. Production Deployment Architecture (Vercel + Render + PostgreSQL)
 Uses a fully managed serverless Edge frontend, a cloud web service backend, and a robust PostgreSQL database to prevent data loss on ephemeral cloud filesystems.
 ```mermaid
 graph TD
@@ -109,7 +110,7 @@ graph TD
 
 ---
 
-## 🗄️ Database Schema Design
+## 🗄️ IV. Database Schema Design
 
 The database (SQLite locally, PostgreSQL in production) acts as the relational persistence layer. Below is the Entity-Relationship (ER) mapping:
 
@@ -148,7 +149,8 @@ erDiagram
 
 ---
 
-## 🌱 Seeded Sample Data
+## 🌱 V. Seeded Sample Data
+
 On first launch, if the database is empty, it is automatically populated with:
 *   **Environments**:
     *   `Development`: Seeded with variables `BASE_URL` (`http://localhost:8000`) and `API_KEY` (`dev-api-key-12345`).
@@ -160,38 +162,35 @@ On first launch, if the database is empty, it is automatically populated with:
 
 ---
 
-## 🔒 Original Work & Plagiarism Protection
+## 🔒 VI. Original Work & Plagiarism Protection
+
 This project is an **original work** built from scratch. It utilizes clean patterns (Service-Repository architectures in Python, Zustand State store slices in Next.js, and standard CSS variable models) to meet fullstack developer evaluation criteria without copy-pasting from existing public repositories.
 
 ---
 
-## 🧪 Verification Test Cases
+## 🧪 VII. Live Application Test Cases
 
-### 1. Automated Integration Tests
-Run this script in the root directory to verify backend endpoints, proxy execution, collections, variable resolution, and history logs:
-```bash
-python run_api_tests.py
-```
+You can test the fully deployed application right now at: **[https://apiforge-hel9o7i0u-jaswanths-projects-d3e93672.vercel.app/](https://apiforge-hel9o7i0u-jaswanths-projects-d3e93672.vercel.app/)**
 
-### 2. Manual UI Verification Test Suite
+Try these specific test scenarios on the live site to verify functionality:
 
-| Test Case | Steps | Expected Outcome |
+| Test Scenario | Instructions to Verify | Expected Result |
 |---|---|---|
-| **TC1: Layout Resize** | Drag vertical divider left/right; drag horizontal divider up/down. Toggle collections sidebar icon. | Panel boundaries adjust smoothly; sidebar collapses and restores to its previous exact width. |
-| **TC2: Variable Resolution** | Select `Development` environment. Enter `{{API_URL}}/api/v1/health` in URL. Click **Send**. | Request executes successfully, proving the placeholder was resolved to its real target URL. |
-| **TC3: Duplicate Keys** | Set method to `POST`. Enter `https://httpbin.org/post`. Add two parameters with key `tag` (value `A` and `B`). Send. | Both query parameters (`tag=A` and `tag=B`) are relayed, proving duplicate key parameters are preserved. |
-| **TC4: cURL Import** | Open cURL modal, paste `curl https://api.com -H "Accept: json"`. Click Import. | Method is set to `GET`, URL is `https://api.com`, and the Header tab holds `Accept: json` correctly. |
-| **TC5: Theme Toggle** | Click the Sun/Moon icon in the header. | The UI immediately switches between Light and Dark mode, including the Monaco code editors. |
+| **Test 1: Simple GET Request** | Enter `https://httpbin.org/get` in the URL bar and click **Send**. | The proxy successfully forwards the request. The Response panel will show `200 OK` and a JSON body containing your request details. |
+| **Test 2: cURL Import** | Click **Import cURL**. Paste `curl -X POST https://httpbin.org/post -d '{"hello": "world"}' -H "Content-Type: application/json"`. Click Import, then Send. | The Method changes to POST, URL populates, Body changes to JSON with the payload. The response from httpbin echoes the JSON back. |
+| **Test 3: Environment Variables** | Switch Environment dropdown to `Development`. In the URL, type `{{API_URL}}/api/v1/health`. Click Send. | The system resolves `{{API_URL}}` to the live backend URL and returns `{"status":"ok","database":"healthy"}`. |
+| **Test 4: Database Persistence (History)** | Send a few random requests. Refresh your browser page completely. Click the **History** tab in the sidebar. | Your previous requests are fully intact and fetched from the PostgreSQL database. Clicking one restores it instantly. |
+| **Test 5: Seed Data Collections** | Click the **Collections** tab in the sidebar. Expand `JSONPlaceholder` -> `Users` and click the GET request. Click Send. | The collection correctly loads the pre-configured mock request and fetches data from the external JSONPlaceholder API. |
 
 ---
 
-## 🛠️ Local Development Setup
+## 🛠️ VIII. Local Development Setup
 
 ### Prerequisites
 *   Python 3.10+
 *   Node.js 18+
 
-### 1. Setup Backend Server (Local SQLite)
+### A. Setup Backend Server (Local SQLite)
 ```bash
 cd backend
 python -m venv venv
@@ -204,7 +203,7 @@ pip install -r requirements.txt
 python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-### 2. Setup Frontend Client
+### B. Setup Frontend Client
 ```bash
 cd frontend
 npm install
@@ -214,23 +213,23 @@ Open [http://localhost:3000](http://localhost:3000) in your web browser.
 
 ---
 
-## 🚀 Production Deployment Strategy
+## 🚀 IX. Production Deployment Strategy
 
 The application is deployed using a decoupled, serverless-friendly architecture that provides maximum scalability and zero-maintenance overhead.
 
-### 1. Frontend: Vercel (Next.js)
+### A. Frontend: Vercel (Next.js)
 The React/Next.js frontend is deployed on **Vercel**. 
 - Vercel automatically builds the `.next` optimized bundle.
 - It provides Edge CDN caching for blazing-fast initial load times.
 - Configured via `vercel.json` to correctly map the `frontend` root directory and set the `NEXT_PUBLIC_API_URL` environment variable to point to the live Render backend.
 
-### 2. Backend: Render (FastAPI)
+### B. Backend: Render (FastAPI)
 The Python FastAPI proxy and business logic layer is deployed on **Render** as a Web Service.
 - Render automatically installs dependencies from `backend/requirements.txt`.
 - Runs the Uvicorn ASGI server natively in a cloud environment.
 - Configured declaratively via `render.yaml` for Infrastructure-as-Code (IaC) deployment.
 
-### 3. Database: PostgreSQL on Render (Why not SQLite?)
+### C. Database: PostgreSQL on Render (Why not SQLite?)
 
 For **local development**, the application uses **SQLite** because it requires zero setup, runs purely in memory/local disk, and is perfect for quick prototyping without installing a database server.
 
@@ -241,20 +240,3 @@ However, for **production deployment**, we migrated to **PostgreSQL**. The reaso
 3. **Platform Integration:** Render's auto-managed PostgreSQL provisions instantly, automatically sets the `DATABASE_URL` environment variable, and persists data permanently on attached block storage, completely solving the ephemeral storage problem.
 
 The codebase elegantly handles both: SQLAlchemy automatically detects the `DATABASE_URL` format and configures the engine dialects seamlessly without changing any application logic!
-
----
-
-## 🧪 Live Application Test Cases
-
-You can test the fully deployed application right now at: **[https://apiforge-app.vercel.app](https://apiforge-app.vercel.app)**
-
-Try these specific test scenarios on the live site to verify functionality:
-
-| Test Scenario | Instructions to Verify | Expected Result |
-|---|---|---|
-| **Test 1: Simple GET Request** | Enter `https://httpbin.org/get` in the URL bar and click **Send**. | The proxy successfully forwards the request. The Response panel will show `200 OK` and a JSON body containing your request details. |
-| **Test 2: cURL Import** | Click **Import cURL**. Paste `curl -X POST https://httpbin.org/post -d '{"hello": "world"}' -H "Content-Type: application/json"`. Click Import, then Send. | The Method changes to POST, URL populates, Body changes to JSON with the payload. The response from httpbin echoes the JSON back. |
-| **Test 3: Environment Variables** | Switch Environment dropdown to `Development`. In the URL, type `{{API_URL}}/api/v1/health`. Click Send. | The system resolves `{{API_URL}}` to the live backend URL and returns `{"status":"ok","database":"healthy"}`. |
-| **Test 4: Database Persistence (History)** | Send a few random requests. Refresh your browser page completely. Click the **History** tab in the sidebar. | Your previous requests are fully intact and fetched from the PostgreSQL database. Clicking one restores it instantly. |
-| **Test 5: Seed Data Collections** | Click the **Collections** tab in the sidebar. Expand `JSONPlaceholder` -> `Users` and click the GET request. Click Send. | The collection correctly loads the pre-configured mock request and fetches data from the external JSONPlaceholder API. |
-
