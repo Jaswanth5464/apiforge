@@ -69,16 +69,16 @@ The application is split into a **Next.js React Frontend** and a **FastAPI Pytho
 
 ```mermaid
 graph TD
-    Client[Next.js Client (Port 3000)] -->|HTTP API / collections| Proxy[FastAPI Server (Port 8000)]
-    Client -->|POST /runner/run| Proxy
-    Proxy -->|SQLAlchemy ORM| DB[(SQLite Database)]
-    Proxy -->|httpx.AsyncClient| Internet[External Target APIs]
+    Client["Next.js Client (Port 3000)"] -->|"HTTP API / collections"| Proxy["FastAPI Server (Port 8000)"]
+    Client -->|"POST /runner/run"| Proxy
+    Proxy -->|"SQLAlchemy ORM"| DB[("PostgreSQL Database")]
+    Proxy -->|"httpx.AsyncClient"| Internet["External Target APIs"]
 ```
 
 ### Tech Stack:
 *   **Frontend**: Next.js (TypeScript), Tailwind CSS, Zustand (state management), Axios, Monaco Editor, Lucide Icons.
 *   **Backend**: Python, FastAPI, Uvicorn, SQL Alchemy ORM, Pydantic (validation schemas), httpx (async HTTP requests client).
-*   **Database**: SQLite.
+*   **Database**: PostgreSQL (Render) / SQLite (Local).
 
 ---
 
