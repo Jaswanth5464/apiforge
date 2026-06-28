@@ -5,7 +5,7 @@
   <p><strong>A high-fidelity, serverless-deployed Postman alternative built for speed.</strong></p>
 
   <p>
-    <a href="https://apiforge-hel9o7i0u-jaswanths-projects-d3e93672.vercel.app/"><img src="https://img.shields.io/badge/Live_Frontend-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Frontend" /></a>
+    <a href="https://apiforge-nine.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" /></a>
     <a href="https://apiforge-backend-u00z.onrender.com/api/v1/health"><img src="https://img.shields.io/badge/Live_Backend-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="Live Backend" /></a>
     <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
     <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
