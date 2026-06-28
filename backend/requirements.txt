@@ -8,3 +8,4 @@ pydantic-settings==2.7.0
 python-dotenv==1.0.1
 aiofiles==24.1.0
 python-multipart==0.0.20
+psycopg2-binary==2.9.10

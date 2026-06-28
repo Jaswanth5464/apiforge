@@ -2,9 +2,17 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 from backend.config import settings
 
+# Fix Render's postgres:// → postgresql:// (SQLAlchemy 2.x requirement)
+_db_url = settings.DATABASE_URL
+if _db_url.startswith("postgres://"):
+    _db_url = _db_url.replace("postgres://", "postgresql://", 1)
+
+# SQLite needs check_same_thread=False; PostgreSQL does not
+_connect_args = {"check_same_thread": False} if _db_url.startswith("sqlite") else {}
+
 engine = create_engine(
-    settings.DATABASE_URL,
-    connect_args={"check_same_thread": False},  # Required for SQLite
+    _db_url,
+    connect_args=_connect_args,
     echo=False,
 )
 
