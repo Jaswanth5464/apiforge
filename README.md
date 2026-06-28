@@ -184,7 +184,17 @@ Try these specific test scenarios on the live site to verify functionality:
 
 ---
 
-## 🛠️ VIII. Local Development Setup
+## 💡 VIII. Assumptions Made
+
+During the development of this platform, the following architectural assumptions were made:
+1. **Single-User Scope**: Real user authentication was marked as a placeholder in the requirements. The application assumes a default logged-in user session, so all collections, history, and environments are globally shared for this instance.
+2. **Proxy Security**: The backend proxy executes outbound requests on behalf of the client. It is assumed this tool will be used for testing and development, so SSL verification errors on outbound requests are gracefully ignored to allow testing against local or self-signed HTTPS servers.
+3. **Database Concurrency**: The assignment requested SQLite. However, because cloud deployment (Render/Vercel) uses ephemeral storage, the application was upgraded to support PostgreSQL automatically in production to prevent data loss, while falling back to SQLite for zero-config local development.
+4. **Environment Scoping**: Variables are resolved globally across the active environment. If a variable is disabled or missing, the literal string `{{variable_name}}` is passed through.
+
+---
+
+## 🛠️ IX. Local Development Setup
 
 ### Prerequisites
 *   Python 3.10+
@@ -213,7 +223,7 @@ Open [http://localhost:3000](http://localhost:3000) in your web browser.
 
 ---
 
-## 🚀 IX. Production Deployment Strategy
+## 🚀 X. Production Deployment Strategy
 
 The application is deployed using a decoupled, serverless-friendly architecture that provides maximum scalability and zero-maintenance overhead.
 
