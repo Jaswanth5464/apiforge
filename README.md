@@ -158,13 +158,13 @@ python run_api_tests.py
 
 ---
 
-## 🛠️ Setup Instructions
+## 🛠️ Local Development Setup
 
 ### Prerequisites
 *   Python 3.10+
 *   Node.js 18+
 
-### 1. Setup Backend Server
+### 1. Setup Backend Server (Local SQLite)
 ```bash
 cd backend
 python -m venv venv
@@ -184,3 +184,50 @@ npm install
 npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) in your web browser.
+
+---
+
+## 🚀 Production Deployment Strategy
+
+The application is deployed using a decoupled, serverless-friendly architecture that provides maximum scalability and zero-maintenance overhead.
+
+### 1. Frontend: Vercel (Next.js)
+The React/Next.js frontend is deployed on **Vercel**. 
+- Vercel automatically builds the `.next` optimized bundle.
+- It provides Edge CDN caching for blazing-fast initial load times.
+- Configured via `vercel.json` to correctly map the `frontend` root directory and set the `NEXT_PUBLIC_API_URL` environment variable to point to the live Render backend.
+
+### 2. Backend: Render (FastAPI)
+The Python FastAPI proxy and business logic layer is deployed on **Render** as a Web Service.
+- Render automatically installs dependencies from `backend/requirements.txt`.
+- Runs the Uvicorn ASGI server natively in a cloud environment.
+- Configured declaratively via `render.yaml` for Infrastructure-as-Code (IaC) deployment.
+
+### 3. Database: PostgreSQL on Render (Why not SQLite?)
+
+For **local development**, the application uses **SQLite** because it requires zero setup, runs purely in memory/local disk, and is perfect for quick prototyping without installing a database server.
+
+However, for **production deployment**, we migrated to **PostgreSQL**. The reasons are:
+
+1. **Ephemeral File Systems:** Cloud platforms like Render and Heroku use ephemeral file systems. If we used SQLite in production, the `postman_clone.db` file would be completely erased every time the server restarts or deploys a new version, resulting in catastrophic data loss.
+2. **Concurrency:** SQLite locks the entire database file during writes. In a production API Client where multiple users might be saving history logs simultaneously, SQLite would bottleneck or throw `database is locked` errors. PostgreSQL handles high-concurrency connections safely.
+3. **Platform Integration:** Render's auto-managed PostgreSQL provisions instantly, automatically sets the `DATABASE_URL` environment variable, and persists data permanently on attached block storage, completely solving the ephemeral storage problem.
+
+The codebase elegantly handles both: SQLAlchemy automatically detects the `DATABASE_URL` format and configures the engine dialects seamlessly without changing any application logic!
+
+---
+
+## 🧪 Live Application Test Cases
+
+You can test the fully deployed application right now at: **[https://apiforge-app.vercel.app](https://apiforge-app.vercel.app)**
+
+Try these specific test scenarios on the live site to verify functionality:
+
+| Test Scenario | Instructions to Verify | Expected Result |
+|---|---|---|
+| **Test 1: Simple GET Request** | Enter `https://httpbin.org/get` in the URL bar and click **Send**. | The proxy successfully forwards the request. The Response panel will show `200 OK` and a JSON body containing your request details. |
+| **Test 2: cURL Import** | Click **Import cURL**. Paste `curl -X POST https://httpbin.org/post -d '{"hello": "world"}' -H "Content-Type: application/json"`. Click Import, then Send. | The Method changes to POST, URL populates, Body changes to JSON with the payload. The response from httpbin echoes the JSON back. |
+| **Test 3: Environment Variables** | Switch Environment dropdown to `Development`. In the URL, type `{{API_URL}}/api/v1/health`. Click Send. | The system resolves `{{API_URL}}` to the live backend URL and returns `{"status":"ok","database":"healthy"}`. |
+| **Test 4: Database Persistence (History)** | Send a few random requests. Refresh your browser page completely. Click the **History** tab in the sidebar. | Your previous requests are fully intact and fetched from the PostgreSQL database. Clicking one restores it instantly. |
+| **Test 5: Seed Data Collections** | Click the **Collections** tab in the sidebar. Expand `JSONPlaceholder` -> `Users` and click the GET request. Click Send. | The collection correctly loads the pre-configured mock request and fetches data from the external JSONPlaceholder API. |
+
