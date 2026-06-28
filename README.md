@@ -1,4 +1,19 @@
-# APIForge — API Client Platform (Postman Clone)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/rocket.svg" width="80" height="80" alt="APIForge Logo"/>
+  <br/>
+  <h1>APIForge — API Client Platform</h1>
+  <p>A high-fidelity, serverless-deployed Postman alternative built for speed.</p>
+
+  <p>
+    <a href="https://apiforge-app.vercel.app"><img src="https://img.shields.io/badge/Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" /></a>
+    <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
+    <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+    <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+    <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="Render" />
+  </p>
+</div>
+
+---
 
 APIForge is a fully functional, high-fidelity clone of the Postman API client. It features a complete HTTP request builder, environmental variable resolution, collections management, chronological history tracking, and a theme switcher. 
 
