@@ -1,8 +1,8 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/rocket.svg" width="80" height="80" alt="APIForge Logo"/>
+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Postman.svg" width="80" height="80" alt="APIForge Logo"/>
   <br/>
-  <h1>APIForge — API Client Platform</h1>
-  <p>A high-fidelity, serverless-deployed Postman alternative built for speed.</p>
+  <h1>🚀 APIForge — API Client Platform</h1>
+  <p><strong>A high-fidelity, serverless-deployed Postman alternative built for speed.</strong></p>
 
   <p>
     <a href="https://apiforge-app.vercel.app"><img src="https://img.shields.io/badge/Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" /></a>
